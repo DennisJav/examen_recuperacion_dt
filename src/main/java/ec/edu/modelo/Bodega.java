@@ -24,7 +24,7 @@ public class Bodega {
 	@Column(name="bode_id")
 	private Integer id;
 	@Column(name="bode_numero_bodega")
-	private Integer numeroBodega;
+	private String numeroBodega;
 	@Column(name="bode_nombre")
 	private String nombre;
 	@Column(name="bode_direccion")
@@ -53,11 +53,11 @@ public class Bodega {
 		this.id = id;
 	}
 
-	public Integer getNumeroBodega() {
+	public String getNumeroBodega() {
 		return numeroBodega;
 	}
 
-	public void setNumeroBodega(Integer numeroBodega) {
+	public void setNumeroBodega(String numeroBodega) {
 		this.numeroBodega = numeroBodega;
 	}
 

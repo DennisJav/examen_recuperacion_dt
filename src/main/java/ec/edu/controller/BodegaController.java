@@ -42,11 +42,8 @@ public class BodegaController {
 	
 	@PostMapping("insertarBodega")
 	public String insertarInventario(Inventario inventario, BindingResult result, Model model) {
-		
-		Bodega b = this.bodegaService.
-		
-		this.gestorBodegaService.insertarInventario(null, null, null);
-		return "bodegaRegistradaNotify";
+
+		return "inventarioRegistradaNotify";
 	}
 	
 }

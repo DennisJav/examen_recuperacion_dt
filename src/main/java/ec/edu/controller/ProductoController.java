@@ -46,12 +46,12 @@ public class ProductoController {
 	
 	
 	@GetMapping("buscarProductos")
-	public String mostrarMarcaModelo(Producto producto) {
+	public String mostrarTodos(Producto producto) {
 		return "mostrarProductos";
 	}
 
 	@GetMapping("resultado")
-	public String buscarVehiculosMarcaModelo(Producto producto, Model modelo) {
+	public String buscarTodos(Producto producto, Model modelo) {
 		List<Producto> productosDisponibles = this.productoService.listaProductos();
 		modelo.addAttribute("productosDisponibles", productosDisponibles);
 		
@@ -60,7 +60,7 @@ public class ProductoController {
 	
 	@DeleteMapping("Eliminar/{idProducto}")
 	public String eliminarProducto(@PathVariable("idProducto") Integer idProducto, Model modelo) {
-		this.productoService.borrarProducto(idProducto);
+		this.productoService.borrarProducto(idProducto);	
 		List<Producto> productosDisponibles = this.productoService.listaProductos();
 		modelo.addAttribute("productosDisponibles", productosDisponibles);
 		return "listaProductos";
