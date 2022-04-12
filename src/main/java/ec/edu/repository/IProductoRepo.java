@@ -1,5 +1,7 @@
 package ec.edu.repository;
 
+import java.util.List;
+
 import ec.edu.modelo.Producto;
 
 public interface IProductoRepo {
@@ -8,5 +10,7 @@ public interface IProductoRepo {
 	void actualizarProducto(Producto producto);
 	Producto buscarProducto(Integer id);
 	void borrarProducto(Integer id);
+	Producto buscarProductoCodigoBarras(String codigoBarras);
+	List<Producto> listaProductos();
 	
 }

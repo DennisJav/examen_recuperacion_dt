@@ -1,5 +1,7 @@
 package ec.edu.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +36,18 @@ public class ProductoServiceImpl implements IProductoService{
 	public void borrarProducto(Integer id) {
 		// TODO Auto-generated method stub
 		this.productoRepo.borrarProducto(id);
+	}
+
+	@Override
+	public Producto buscarProductoCodigoBarras(String codigoBarras) {
+		// TODO Auto-generated method stub
+		return this.productoRepo.buscarProductoCodigoBarras(codigoBarras);
+	}
+
+	@Override
+	public List<Producto> listaProductos() {
+		// TODO Auto-generated method stub
+		return this.productoRepo.listaProductos();
 	}
 
 	

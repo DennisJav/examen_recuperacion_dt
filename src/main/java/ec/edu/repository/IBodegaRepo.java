@@ -9,4 +9,6 @@ public interface IBodegaRepo {
 	void actualizarBodega(Bodega bodega);
 	Bodega buscarBodega(Integer id);
 	void borrarBodega(Integer id);
+	
+	
 }

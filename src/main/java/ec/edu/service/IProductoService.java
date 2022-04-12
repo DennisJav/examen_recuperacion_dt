@@ -1,5 +1,7 @@
 package ec.edu.service;
 
+import java.util.List;
+
 import ec.edu.modelo.Producto;
 
 public interface IProductoService {
@@ -8,5 +10,6 @@ public interface IProductoService {
 	void actualizarProducto(Producto producto);
 	Producto buscarProducto(Integer id);
 	void borrarProducto(Integer id);
-	
+	Producto buscarProductoCodigoBarras(String codigoBarras);
+	List<Producto> listaProductos();
 }
