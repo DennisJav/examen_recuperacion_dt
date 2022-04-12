@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ec.edu.modelo.Bodega;
+import ec.edu.modelo.Inventario;
 import ec.edu.service.IBodegaService;
+import ec.edu.service.IGestorBodegaService;
 
 
 @Controller
@@ -18,6 +20,9 @@ public class BodegaController {
 
 	@Autowired
 	private IBodegaService bodegaService;
+	@Autowired
+	private IGestorBodegaService gestorBodegaService;
+	
 	
 	@GetMapping("bodegaNueva")
 	public String vistaObtenerDatos(Bodega bodega) {
@@ -30,6 +35,18 @@ public class BodegaController {
 		return "bodegaRegistradaNotify";
 	}
 	
+	@GetMapping("inventarioNuevo")
+	public String vistaObtenerDatosInventario(Inventario inventario) {
+		return "obtenerDatos";
+	}
 	
+	@PostMapping("insertarBodega")
+	public String insertarInventario(Inventario inventario, BindingResult result, Model model) {
+		
+		Bodega b = this.bodegaService.
+		
+		this.gestorBodegaService.insertarInventario(null, null, null);
+		return "bodegaRegistradaNotify";
+	}
 	
 }

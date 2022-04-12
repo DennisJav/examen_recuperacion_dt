@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,12 +29,19 @@ public class Bodega {
 	private String nombre;
 	@Column(name="bode_direccion")
 	private String direccion;
-	@Column(name="bode_telefono")
+	//@Column(name="bode_telefono")
 	private String telefono;
+	
+	@ElementCollection
+	private List<String> telefonos;
+	
 	
 	@OneToMany(mappedBy = "bodega",cascade=CascadeType.ALL) 
 	private List<Producto> productos;
 
+	@OneToMany(mappedBy = "bodega",cascade=CascadeType.ALL) 
+	private List<Inventario> inventario;
+	
 	
 	//metodos set y get
 	
@@ -84,6 +92,23 @@ public class Bodega {
 	public void setProductos(List<Producto> productos) {
 		this.productos = productos;
 	}
+
+	public List<String> getTelefonos() {
+		return telefonos;
+	}
+
+	public void setTelefonos(List<String> telefonos) {
+		this.telefonos = telefonos;
+	}
+
+	public List<Inventario> getInventario() {
+		return inventario;
+	}
+
+	public void setInventario(List<Inventario> inventario) {
+		this.inventario = inventario;
+	}
+	
 	
 	
 	

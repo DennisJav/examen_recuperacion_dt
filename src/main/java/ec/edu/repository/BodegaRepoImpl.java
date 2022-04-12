@@ -1,7 +1,10 @@
 package ec.edu.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -38,6 +41,21 @@ public class BodegaRepoImpl implements IBodegaRepo{
 		// TODO Auto-generated method stub
 		Bodega b = this.buscarBodega(id);
 		this.entityManager.remove(b);
+	}
+
+	@Override
+	public Bodega buscarBodegaNumero(String numero) {
+		// TODO Auto-generated method stub
+		TypedQuery<Bodega> miTypedQuery = this.entityManager.createQuery("select b from Bodega b where b.numeroBodega=:numero",Bodega.class);
+		miTypedQuery.setParameter("numeroBodega", numero);
+		return miTypedQuery.getSingleResult();
+	}
+
+	@Override
+	public List<Bodega> listaBodegas() {
+		// TODO Auto-generated method stub
+		TypedQuery<Bodega> miTypedQuery = this.entityManager.createQuery("select b from Bodega b", Bodega.class);
+		return miTypedQuery.getResultList();
 	}
 	
 	

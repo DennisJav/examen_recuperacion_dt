@@ -33,6 +33,11 @@ public class Producto {
 	@ManyToOne
 	@JoinColumn(name = "bode_id")
 	private Bodega bodega;
+	
+	@ManyToOne
+	@JoinColumn(name = "inve_id")
+	private Inventario inventario;
+	
 
 	//metodos set y get
 	
@@ -83,5 +88,15 @@ public class Producto {
 	public void setBodega(Bodega bodega) {
 		this.bodega = bodega;
 	}
+
+	public Inventario getInventario() {
+		return inventario;
+	}
+
+	public void setInventario(Inventario inventario) {
+		this.inventario = inventario;
+	}
+	
+	
 
 }

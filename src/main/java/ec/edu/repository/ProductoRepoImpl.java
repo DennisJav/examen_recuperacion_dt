@@ -1,5 +1,6 @@
 package ec.edu.repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -40,7 +41,12 @@ public class ProductoRepoImpl implements IProductoRepo {
 	public void borrarProducto(Integer id) {
 		// TODO Auto-generated method stub
 		Producto p = this.buscarProducto(id);
-		this.entityManager.remove(p);
+		BigDecimal stock = p.getStock();
+		Integer in = stock.intValue();
+		if(in >= 100) {
+			this.entityManager.remove(p);
+		} 
+		
 	}
 
 	@Override
